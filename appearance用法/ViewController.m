@@ -16,7 +16,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+}
+//点击屏幕所有的Switch会变成红色
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+//    先将UIViewController上的view移除
+    [self.view removeFromSuperview];
+    //拿到全局属性appearance
+    UISwitch *sw = [UISwitch appearance];
+//    改变样式
+    sw.onTintColor = [UIColor redColor];
+    //重新布局view
+    [[UIApplication sharedApplication].keyWindow addSubview:self.view];
 }
 
 - (void)didReceiveMemoryWarning {
